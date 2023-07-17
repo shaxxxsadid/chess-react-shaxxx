@@ -1,0 +1,271 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+
+.App {
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-image: url(./ui/assets/blob-scene-haikei.svg);
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+
+.boardBox {
+  display: flex;
+  flex-direction: column;
+}
+
+.playerTurn {
+  display: flex;
+  justify-content: center;
+  width: 334px;
+  padding: 10px 25px;
+  background-color: white;
+  border-radius: 25px 25px 0 0;
+  z-index: 0;
+}
+
+.board {
+  width: calc(96px * 8);
+  height: calc(96px * 8);
+  display: flex;
+  flex-wrap: wrap;
+  background-color: white;
+  box-shadow: 0 0 50px black;
+}
+
+.Timer {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 400px;
+  height: 400px;
+  margin-right: 50px;
+  background-image: url(./ui/assets/timer-svgrepo-com.svg);
+  background-size: cover;
+}
+
+.box {
+  display: flex;
+  position: absolute;
+  justify-content: center;
+  align-items: center;
+  width: 100lvw;
+  height: 100lvh;
+  left: 0;
+  top: 0;
+  background-color: rgba(0, 0, 0, 0.8);
+  visibility: hidden;
+  opacity: 0;
+  transition: all .5s linear;
+}
+
+.Timer .container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  min-width: 400px;
+  min-height: 400px;
+  padding: 50px 0 0 0;
+  color: white;
+}
+
+
+.Timer .container .TimerButton {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 130px;
+  padding: 10px 15px;
+  margin: 20px 0;
+  font-size: 20px;
+  border-radius: 20px;
+  background-image: url(./ui/assets/blurry-gradient-haikei.svg);
+  background-size: cover;
+  cursor: pointer;
+  transition: all .4s linear;
+}
+
+.Timer .container .TimerButton:hover {
+  transition: all .4s linear;
+  width: 160px;
+}
+
+.box.Timerbox {
+  flex-direction: column;
+  
+}
+
+.box.visible {
+  opacity: 1;
+  transition: all .5s linear;
+  visibility: visible;
+}
+
+.box .Check {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 55lvw;
+  height: 55lvh;
+  color: white;
+  font-size: 50px;
+  background: gray;
+  border-radius: 50px;
+}
+
+.box .Check.Timerbox {
+  text-align: center;
+
+}
+
+.board .box.lostGame {
+  display: flex;
+  flex-direction: column;
+}
+
+.board .box .Checkmate {
+  padding: 50px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  max-width: 80lvw;
+  max-height: 60lvh;
+  width: 30lvw;
+  height: 30lvh;
+  color: white;
+  font-size: 50px;
+  background: gray;
+  border-radius: 50px;
+}
+
+.box .LostButton {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 250px;
+  height: 50px;
+  color: white;
+  font-size: 30px;
+  background: gray;
+  border-radius: 0% 0% 25px 25px;
+  cursor: pointer;
+  padding: 0 0 10px 0px;
+  transition: all 0.4s linear;
+}
+
+.box .LostButton:hover {
+  transition: all 0.4s linear;
+  width: 450px;
+}
+
+.cell {
+  width: 96px;
+  height: 96px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.cell img {
+  width: 88px;
+  height: 88px;
+  position: relative;
+}
+
+.cell.white {
+  background-color: rgba(240, 255, 255, 0.80);
+}
+
+.cell.black {
+  background-color: rgba(0, 0, 0, 0.85);
+}
+
+.cell.selected {
+  background-color: coral;
+}
+
+.available {
+  width: 25px;
+  height: 25px;
+  border-radius: 50%;
+  background-color: chartreuse;
+}
+
+.cell.selected.enemy {
+  background-color: coral;
+}
+
+.cell.enemy {
+  background-color: crimson;
+}
+
+.cell.king {
+  background-color: darkred;
+}
+
+.lostTable {
+  margin: 10px 0 0 50px;
+  display: flex;
+  flex-direction: column;
+  max-width: 40vw;
+  min-width: 10vw;
+  max-height: 75lvh;
+  min-height: 40lvh;
+  background-image: url(./ui/assets/stacked-waves-haikei.svg);
+  background-size: cover;
+  background-repeat: no-repeat;
+  padding: 15px;
+  border-radius: 15px;
+  color: white
+}
+
+.lostTable .lostTitle {
+  font-size: 20px;
+}
+
+.lostTable .lostFigure {
+  height: calc(75lvh/2);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.lostTable .lostFigure .figureTable {
+  display: grid;
+  grid-template-columns: repeat(2, calc(40lvh/2));
+  margin-top: 10px;
+}
+
+.lostTable .lostFigure .Figure {
+  width: 90%;
+  padding: 5px 0 8px 0;
+  margin: 0 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 2px solid rgba(255, 255, 255, 0.5);
+  border-radius: 20px;
+  background-image: url(./ui/assets/blurry-gradient-haikei.svg);
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+
+.lostTable .lostFigure .Figure .titleFigure {
+  width: 50%;
+  font-size: 20px;
+  font-weight: 500;
+  text-align: end;
+}
+
+.lostTable .lostFigure .Figure img {
+  margin: auto;
+}
